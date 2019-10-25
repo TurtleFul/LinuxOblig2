@@ -12,8 +12,16 @@ echo -e "Guess a number between 1 and 100\n"
 while (( guess != answer )); do
     num=$((num+1))
   	read -p "Enter guess $num: " guess
-  	 if (( guess < answer )); then
-  		   echo "Higher..."
+
+    if (( guess == "0")); then
+          echo "goodbye. The secret number was $answer"
+          sleep 5
+          exit
+          
+
+  	 elif (( guess < answer )); then
+      echo "Higher..."
+
   	    elif (( guess > answer )); then
   		      echo "Lower..."
   	fi
@@ -22,11 +30,13 @@ while (( guess != answer )); do
 
 
 
-  read -r -p "Do you want to play again? (yes/no) " -n 1 -r
+  read -p "Do you want to play again? (yes/no) " REPLY
   echo    # (optional) move to a new line
-  if [[ ! $REPLY = "yes" ]]
+  if [[ $REPLY == "yes" ]]
   then
       exec ./numberguess.sh
     else
+      echo "Thank you for playing"
+      sleep 5
       exit
   fi
