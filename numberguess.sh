@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 guess=-1
 typeset -i num=0
