@@ -17,7 +17,6 @@ while (( guess != answer )); do
           echo "goodbye. The secret number was $answer"
           sleep 5
           exit
-          
 
   	 elif (( guess < answer )); then
       echo "Higher..."
@@ -28,8 +27,6 @@ while (( guess != answer )); do
   done
   echo -e "Correct! That took $num guesses.\n"
 
-
-
   read -p "Do you want to play again? (yes/no) " REPLY
   echo    # (optional) move to a new line
   if [[ $REPLY == "yes" ]]
@@ -37,6 +34,5 @@ while (( guess != answer )); do
       exec ./numberguess.sh
     else
       echo "Thank you for playing"
-      sleep 5
       exit
   fi
